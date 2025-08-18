@@ -1,11 +1,11 @@
 from flask import Flask
+from blueprints.general import general
 
 
 app=Flask(__name__)
+app.register_blueprint(general)
 
-@app.route('/')
-def Home():
-    return "Helooo"
+
 
 
 if __name__ == '__main__':
