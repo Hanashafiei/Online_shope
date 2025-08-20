@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from blueprints.general import general
 from blueprints.admin import admin
 from blueprints.user import user
+import config
 
 
 app=Flask(__name__)
@@ -11,7 +12,7 @@ app.register_blueprint(admin)
 app.register_blueprint(user)
 
 db=SQLAlchemy()
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+mysqlconnector://root:@localhost/database"
+app.config["SQLALCHEMY_DATABASE_URI"] = config.SQLALCHEMY_DATABASE_URI
 db.init_app(app)
 
 with app.app_context():

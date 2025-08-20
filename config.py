@@ -1,0 +1,1 @@
+SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://root:@localhost/online_shop"
