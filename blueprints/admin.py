@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template,request
+from flask import Blueprint,render_template,request,session,redirect
 from config import *
 
 
@@ -7,15 +7,24 @@ admin= Blueprint("admin",__name__)
 
 @admin.route("/admin/login",methods=["POST" , "GET"])
 def login():
-    if request.method == "post":
+    if request.method == "POST":
         username=request.form.get('username',None)
         password=request.form.get('password',None)
 
-        if username ==ADMIN_USERNAME and password==PASSWORD_USERNAME:
-            pass
+        if username ==ADMIN_USERNAME and password==ADMIN_PASSWORD:
+            session["admin_login"]=username
+            return redirect("/admin/dashboard")
+        
+        else:
+            return render_template("admin/login.html")
+        
+    return render_template("admin/login.html")
+
+
+@admin.route("/admin/dashboard")
+def dashboard():
+    return "this is dash"
 
 
 
-    else:
-        return render_template("admin/login.html")
 
