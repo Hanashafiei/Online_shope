@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template,request,session,redirect
+from flask import Blueprint,render_template,request,session,redirect,abort
 from config import *
 
 
@@ -21,9 +21,13 @@ def login():
     return render_template("admin/login.html")
 
 
-@admin.route("/admin/dashboard")
+@admin.route("/admin/dashboard",methods=["GET"])
 def dashboard():
-    return "this is dash"
+    if session.get("admin_login",None) == None:
+        abort(403)
+    else:
+        return"this is dash"
+    
 
 
 
