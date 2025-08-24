@@ -36,7 +36,7 @@ def dashboard():
 
 @admin.route("/admin/dashboard/products",methods=["GET"])
 def products():
-        return"this is product"
+        return render_template("products.html")
     
 
 
