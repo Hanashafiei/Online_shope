@@ -5,6 +5,14 @@ from config import *
 
 admin= Blueprint("admin",__name__)
 
+
+@admin.before_request
+def before_request():
+    if session.get("admin_login",None) == None and request.endpoint != 'admin.login':
+        abort(403)
+
+
+
 @admin.route("/admin/login",methods=["POST" , "GET"])
 def login():
     if request.method == "POST":
@@ -23,10 +31,12 @@ def login():
 
 @admin.route("/admin/dashboard",methods=["GET"])
 def dashboard():
-    if session.get("admin_login",None) == None:
-        abort(403)
-    else:
-        return"this is dash"
+        return render_template("dashboard.html")
+    
+
+@admin.route("/admin/dashboard/products",methods=["GET"])
+def products():
+        return"this is product"
     
 
 
