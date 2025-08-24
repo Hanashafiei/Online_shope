@@ -10,5 +10,35 @@
 
 
 {% block body %}
-<h1>اولین محصول</h1>
+
+
+
+
+<table>
+    <tr>
+        <th>نام محصول</th>
+        <th>توضیحات</th>
+        <th>قیمت</th>
+        <th>فعال</th>
+    </tr>
+
+    {% for p in products %}
+    <tr>
+        <td>{{p.name}}</td>
+        <td>{{p.description}}</td>
+        <td>{{p.price}}</td>
+        <td>{{ "بله" if p.active|int == 1 else "خیر" }}</td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+<form action="#" method="post">
+    <input type="text" name="name" placeholder="نام محصول"><br>
+    <textarea name="description" placeholder="توضیحات"></textarea><br>
+    <input type="number" name="price" placeholder="قیمت محصول (تومان)"><br>
+    <label>فعال :</label><input type="checkbox" name="active" value="1"><br>
+    <input type="submit">
+
+</form>
 {% endblock %}

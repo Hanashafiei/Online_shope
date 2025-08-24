@@ -1,5 +1,7 @@
 from flask import Blueprint,render_template,request,session,redirect,abort
 from config import *
+from Models.product import Product
+from extentions import db
 
 
 
@@ -34,9 +36,38 @@ def dashboard():
         return render_template("dashboard.html")
     
 
-@admin.route("/admin/dashboard/products",methods=["GET"])
+@admin.route("/admin/dashboard/products",methods=["GET","POST"])
 def products():
-        return render_template("products.html")
+        if request.method == "GET":
+            products=Product.query.all()
+            return render_template("products.html",products=products)
+        else:
+             name=request.form.get("name",None)
+             description=request.form.get("description",None)
+             price=request.form.get("price",None)
+             active=request.form.get("active",None)
+
+             p=Product(name=name,description=description,price=price)
+             if active == None: 
+                    p.active=0  
+             else:
+                    p.active=1
+
+
+             db.session.add(p)
+             db.session.commit()
+
+             return "done"
+
+             
+
+
+            
+
+
+            
+
+
     
 
 
