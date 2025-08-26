@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+<title>edit_product</title>
+
+
+
+{% endblock %}
+
+
+{% block body %}
+
+
+
+
+<form action="#" method="post">
+    <input type="text" name="name" placeholder="نام محصول"><br>
+    <textarea name="description" placeholder="توضیحات"></textarea><br>
+    <input type="number" name="price" placeholder="قیمت محصول (تومان)"><br>
+    <label>فعال :</label><input type="checkbox" name="active" value="1"><br>
+    <input type="submit">
+
+</form>
+{% endblock %}

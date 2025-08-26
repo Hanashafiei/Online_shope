@@ -58,6 +58,50 @@ def products():
              db.session.commit()
 
              return "done"
+        
+
+
+
+
+
+@admin.route("/admin/dashboard/edit_product/<id>",methods=["GET","POST"])
+def edit_product(id):
+        if request.method == "GET":
+            product=Product.query.filter(Product.id==id).first_or_404()
+            return render_template("edit_product.html",product=product)
+        else:
+             name=request.form.get("name",None)
+             description=request.form.get("description",None)
+             price=request.form.get("price",None)
+             active=request.form.get("active",None)
+
+             p=Product(name=name,description=description,price=price)
+             if active == None: 
+                    p.active=0  
+             else:
+                    p.active=1
+
+
+             db.session.add(p)
+             db.session.commit()
+
+             return "done"
+
+             
+
+
+            
+
+
+            
+
+
+    
+
+
+
+
+
 
              
 
