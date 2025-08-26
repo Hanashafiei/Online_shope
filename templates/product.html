@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+<title>محصول {{product.name}}</title>
+
+{% endblock %}
+
+{% block body %}
+
+آیدی محصول:{{product.id}}<br>
+نام محصول:{{product.name}}<br>
+قیمت محصول:{{product.price}}
+
+
+
+{% endblock %}

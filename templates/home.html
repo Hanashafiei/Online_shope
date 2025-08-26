@@ -2,16 +2,16 @@
 
 
 {% block header %}
-<title>فروشگاه اینترنتی مینو</title>
+<title>فروشگاه اینترنتی پاپیون</title>
 
 {% endblock %}
 
 {% block body %}
-<h1>فروشگاه اینترنتی مینو</h1>
+<h1>فروشگاه اینترنتی پاپیون</h1>
 <h3>محصولات:</h3>
 
 {% for p in products %}
-    {{ p.name }}&nbsp; 
+    <a href="{{url_for('general.product',id=p.id,name=p.name)}}">{{ p.name }}&nbsp;</a>
 {% endfor %}
 
 
