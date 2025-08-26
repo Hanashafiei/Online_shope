@@ -15,10 +15,10 @@
 
 
 <form action="#" method="post">
-    <input type="text" name="name" placeholder="نام محصول"><br>
-    <textarea name="description" placeholder="توضیحات"></textarea><br>
-    <input type="number" name="price" placeholder="قیمت محصول (تومان)"><br>
-    <label>فعال :</label><input type="checkbox" name="active" value="1"><br>
+    <input type="text" name="name" value="{{ product.name }}" placeholder="نام محصول"><br>
+    <textarea name="description"  placeholder="توضیحات">{{ product.description }}</textarea><br>
+    <input type="number" name="price" value="{{ product.price }}"  placeholder="قیمت محصول (تومان)"><br>
+    <label>فعال :</label><input type="checkbox" name="active" value="1" {{ "checked" if product.active == 1 }}><br>
     <input type="submit">
 
 </form>

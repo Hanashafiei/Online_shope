@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template,request,session,redirect,abort
+from flask import Blueprint,render_template,request,session,redirect,abort,url_for
 from config import *
 from Models.product import Product
 from extentions import db
@@ -66,8 +66,8 @@ def products():
 
 @admin.route("/admin/dashboard/edit_product/<id>",methods=["GET","POST"])
 def edit_product(id):
+        product=Product.query.filter(Product.id==id).first_or_404()
         if request.method == "GET":
-            product=Product.query.filter(Product.id==id).first_or_404()
             return render_template("edit_product.html",product=product)
         else:
              name=request.form.get("name",None)
@@ -75,17 +75,22 @@ def edit_product(id):
              price=request.form.get("price",None)
              active=request.form.get("active",None)
 
-             p=Product(name=name,description=description,price=price)
+
+
+             product.name=name
+             product.description=description
+             product.price=price
+
              if active == None: 
-                    p.active=0  
+                    product.active=0  
              else:
-                    p.active=1
+                    product.active=1
 
 
-             db.session.add(p)
+
              db.session.commit()
 
-             return "done"
+             return redirect(url_for("admin.edit_product", id=id))
 
              
 
