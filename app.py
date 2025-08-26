@@ -4,9 +4,11 @@ from blueprints.general import general
 from blueprints.admin import admin
 from blueprints.user import user
 import config
+from flask_wtf.csrf import CSRFProtect
 
 
 app=Flask(__name__)
+csrf = CSRFProtect(app)
 app.debug = True
 app.register_blueprint(general)
 app.register_blueprint(admin)
