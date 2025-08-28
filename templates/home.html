@@ -11,7 +11,7 @@
 <h3>محصولات:</h3>
 
 {% for p in products %}
-    <a href="{{url_for('general.product',id=p.id,name=p.name)}}">{{ p.name }}&nbsp;</a>
+    <a href="{{url_for('general.product',id=p.id,name=p.name)}}">{{ p.name }}&nbsp;&nbsp;</a>
 {% endfor %}
 
 

@@ -19,6 +19,7 @@
         <th>نام محصول</th>
         <th>توضیحات</th>
         <th>قیمت</th>
+        <th>عکس</th>
         <th>فعال</th>
         <th>ویرایش</th>
         
@@ -29,6 +30,7 @@
         <td>{{p.name}}</td>
         <td>{{p.description}}</td>
         <td>{{p.price}}</td>
+        <td><img style="width: 30px;" src="/static/cover/{{ p.id }}.jpg"></td>
         <td>{{ "بله" if p.active|int == 1 else "خیر" }}</td>
         <td><a href="/admin/dashboard/edit_product/{{ p.id }}">ویرایش</a></td>
     </tr>
@@ -36,11 +38,12 @@
     {% endfor %}
 </table>
 
-<form action="#" method="post">
+<form action="#" method="post" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <input type="text" name="name" placeholder="نام محصول"><br>
     <textarea name="description" placeholder="توضیحات"></textarea><br>
     <input type="number" name="price" placeholder="قیمت محصول (تومان)"><br>
+    <label>عکس محصول:</label><input type="file" name="cover" ><br>
     <label>فعال :</label><input type="checkbox" name="active" value="1"><br>
     <input type="submit">
 
