@@ -7,6 +7,6 @@ class User(db.Model,UserMixin):
     
     id = Column(Integer, primary_key=True)
     username = Column(String(100),unique=True, nullable=False,index=True)
-    password = Column(String(50), nullable=False,index=True)
+    password = Column(String(1000), nullable=False,index=True)
     phone = Column(String(11),nullable=False,index=True)
     addres= Column(String(200),nullable=False,index=True)
