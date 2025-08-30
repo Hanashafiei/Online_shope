@@ -10,4 +10,4 @@ class User(db.Model,UserMixin):
     password = Column(String(1000), nullable=False,index=True)
     phone = Column(String(11),nullable=False,index=True)
     addres= Column(String(200),nullable=False,index=True)
-    cart=db.relationship('Cart',back_populates='users')
+    
