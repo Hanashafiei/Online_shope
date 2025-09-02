@@ -9,10 +9,17 @@
 {% block body %}
 
 
-{% for cart_item in (current_user.carts | selectattr('status', 'equalto', 'pending..') | list | first).cart_items
-%}
-    نام محصول:{{cart_item.product.name}}<br>تعداد:{{cart_item.quantity}}<br>{{cart_item.product.price}}<br>
-{% endfor %}
+{% set cart=current_user.carts | selectattr('status', 'equalto', 'pending..') | list %}
+{% if cart|length >0 %}
+    {% for cart_item in (cart | first).cart_items%}
+        نام محصول:{{cart_item.product.name}}<br>تعداد:{{cart_item.quantity}}<br>{{cart_item.product.price}}<br>
+        <form action="/remove-from-cart" method="get">
+            <input type="hidden" name="id" value="{{ cart_item.id }}">
+            <input type="submit" value="حذف">
+
+        </form>
+    {% endfor %}
+{% endif %}
 
 
 
