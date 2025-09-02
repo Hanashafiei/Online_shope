@@ -7,6 +7,10 @@ import config
 from flask_wtf.csrf import CSRFProtect
 from flask_login import LoginManager
 from Models.users import User
+from Models.cart import Cart
+from Models.payment import Payment
+from Models.cart_item import CartItem
+
 
 
 app=Flask(__name__)

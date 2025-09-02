@@ -14,5 +14,12 @@
 عکس محصول:<img style="width: 30px;" src="/static/cover/{{ product.id }}.jpg">
 
 
+<form action="/add-to-cart" method="get">
+    <input type="hidden" name="id" value="{{ product.id }}">
+    <input type="submit" value="اضافه کردن به سبد خرید ">
+
+</form>
+
+
 
 {% endblock %}
