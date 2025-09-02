@@ -97,7 +97,7 @@ def remove_from_cart():
 
        else:
               db.session.delete(cart_item)
-              
+
        db.session.commit()
 
        return redirect(url_for('user.cart'))
@@ -105,5 +105,6 @@ def remove_from_cart():
 @user.route("/cart", methods=["GET"])
 @login_required
 def cart(): 
-       return render_template("user/cart.html")      
+       cart=current_user.carts.filter(Cart.status=="pending..").first()
+       return render_template("user/cart.html",cart=cart)      
 
