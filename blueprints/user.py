@@ -71,6 +71,7 @@ def add_to_cart():
        if cart_item==None:
 
               item=CartItem(quantity=1)  
+              item.price=product.price
               item.cart=cart
               item.product=product
               db.session.add(item)
