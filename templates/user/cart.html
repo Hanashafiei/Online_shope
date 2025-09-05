@@ -11,7 +11,7 @@
 
     {% if cart != None and cart.cart_items|list|length >0 %}
         {% for cart_item in cart.cart_items%}
-            نام محصول:{{cart_item.product.name}}<br>تعداد:{{cart_item.quantity}}<br>{{cart_item.product.price}}<br>
+            نام محصول:{{cart_item.product.name}}<br>تعداد:{{cart_item.quantity}}<br>قیمت:{{cart_item.product.price}}<br>
             <form action="/remove-from-cart" method="get">
                 <input type="hidden" name="id" value="{{ cart_item.id }}">
                 <input type="submit" value="حذف">
@@ -20,6 +20,7 @@
         {% endfor %}
         
         <b>قیمت کل:{{cart.total_price()}}  تومان</b>
+        <a href="/payment">پرداخت</a>
 
     {% else %}
     سبد خرید خالی است
