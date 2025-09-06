@@ -7,8 +7,24 @@
 {% endblock %}
 
 {% block body %}
-<h1>فروشگاه اینترنتی پاپیون</h1>
-<h3>محصولات:</h3>
+<header>
+    <img src="static/img/logop3.png" alt="papion">
+    <section>
+        <a href="#">صفحه اصلی</a>
+        <a href="#">محصولات جدید</a>
+        <a href="#">محصولات پرفروش</a>
+        <a href="#">درباره ما</a>
+        <a href="#">ارتباط با ما</a>
+
+    </section>
+</header>
+
+
+
+
+
+
+
 
 {% for p in products %}
     <a href="{{url_for('general.product',id=p.id,name=p.name)}}">{{ p.name }}&nbsp;&nbsp;</a>

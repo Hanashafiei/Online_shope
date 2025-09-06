@@ -1,0 +1,59 @@
+@font-face {
+    font-family: Font;
+    src: url('../font/IRAN-Rounded.woff');
+}
+
+* {
+    transition: 250ms ease-out;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    background-color: #eee4e4;
+    color: rgba(58, 57, 57, 0.904);
+    font-family: Font;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+}
+
+header>img {
+    width: 200px;;
+    border-radius: 10px;
+    margin:7px ;
+    margin-top: 25px;
+   
+    
+}
+
+header>section {
+    border-radius: 63px;
+    background:#748DAE;
+    box-shadow: 10px 10px 20px#9a9595,
+        -10px -10px 20px #fffdfd;
+    max-width: 850px;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+header>section>a {
+    text-decoration: none;
+    color: #F5CBCB;
+    font-size: 17px;
+    margin: 0 23px;
+    padding: 10px;
+    border: 1px solid #fafafa;
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px #aaa9a9d3;
+
+
+
+}
