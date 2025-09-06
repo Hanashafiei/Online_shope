@@ -48,11 +48,7 @@ def login():
                      else:
                             flash(' رمز عبور اشتباه است',"error")
                             return redirect(url_for('user.login'))
-                            
-@user.route("/user/dashboard", methods=["GET"])
-@login_required
-def dashboard(): 
-       return "dashboard" 
+
 
 
                             
@@ -165,3 +161,17 @@ def verify():
 
     db.session.commit()
     return redirect(url_for('user.dashboard'))
+
+
+                            
+@user.route("/user/dashboard", methods=["GET"])
+@login_required
+def dashboard(): 
+       return render_template("user/dashboard.html")
+
+                            
+@user.route("/user/dashboard/order/<id>", methods=["GET"])
+@login_required
+def order(id): 
+       cart=current_user.carts.filter(Cart.id==id).first_or_404()
+       return render_template("user/order.html",cart=cart)
