@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<title>پنل کاربری ادمین</title>
+
+
+
+{% endblock %}
+
+
+{% block body %}
+<a href="/admin/dashboard/products" title="products_page">صفحه ی محصولات</a>
+
+<div>
+{% for cart in carts %}
+
+    {{cart.get_status_persian() }}<a href="{{ url_for('admin.order',id=cart.id)}}">اطلاعات بیشتر</a><br>
+
+{% endfor %}
+</div>
+
+
+
+
+
+{% endblock %}
