@@ -30,7 +30,7 @@ header img {
     margin: 7px;
     margin-top: 19px;
     margin-bottom: 20px;
-    float: right;
+    float: left;
 
 
 
@@ -52,11 +52,16 @@ header>section {
 
 header div {
     display: flex;
-    float: left;
+    float: right;
     justify-content: center;
     align-items: center;
-
-
+}
+header div input{
+    font-size: 18px;
+    border-radius: 10px;
+    font-family: Font;
+    border: 3px solid #F5CBCB;
+    color: #3674c4;
 }
 
 header a {
@@ -73,8 +78,8 @@ header a {
 }
 
 header a:hover {
-    background-color: #F5CBCB;
-    color: #748DAE;
+    background-color: #ebcdcd;
+    color: #3571be;
     transform: translateY(-3px);
     box-shadow: inset 2px 2px 5px #bcbcbc, inset -2px -2px 5px #e6e3e3, 2px 2px 5px #bcbcbc, -2px -2px 5px #ffffff;
 }
@@ -146,7 +151,7 @@ header a:hover {
     align-items: center;
     width: 200px;
     background-color:#2e62a7f3 ;
-    color: #F5CBCB;
+    color: #f8c8f0;
     margin:auto;
     border: 4px double #F5CBCB;
     filter: none;

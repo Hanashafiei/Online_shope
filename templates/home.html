@@ -7,36 +7,16 @@
 {% endblock %}
 
 {% block body %}
-<header>
 
-    <section>
-        <img src="static/img/img.png" alt="papion">
-        <div>
-            <a href="#">صفحه اصلی</a>
-            <a href="#">محصولات جدید</a>
-            <a href="#">محصولات پرفروش</a>
-            <a href="#">درباره ما</a>
-
-        </div>
-
-    </section>
-</header>
+    {% include 'part/header.html' %}
+    
 
 <section class="products">
     {% for p in products %}
-    <section class="product_box">
-        <img src="{{url_for('static' , filename='cover/'+p.id|string+'.jpg')}}">
-        <span class="tag"><img src="{{url_for('static' , filename='icon/delivery.png')}}">ارسال سریع و رایگان</span>
-
-
-        <h3>{{ p.name }}<br> {{ "{:,}".format(p.price) }} تومان</h3>
-        <a href="{{url_for('general.product',id=p.id,name=p.name)}}">جزییات بیشتر</a>
-        
-    
-        
-    </section>
-{% endfor %}
+        {% include 'part/product_box.html' %}
+    {% endfor %}
 </section>
+
 
 
 {% endblock %}
