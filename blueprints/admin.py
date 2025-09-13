@@ -128,16 +128,6 @@ def order(id):
     
 
 
-                            
-@admin.route("/remove-product", methods=["GET"])
-def remove_product(): 
-    id = request.args.get("id")  
-    product = Product.query.filter(Product.id == id).first_or_404()
-
-    product.active = False 
-    db.session.commit()
-
-    return redirect(url_for("admin.products"))
 
 
 
