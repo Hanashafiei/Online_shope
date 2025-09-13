@@ -1,6 +1,19 @@
 <section class="product_box">
     <img src="{{url_for('static' , filename='cover/'+p.id|string+'.jpg')}}">
     <span class="tag"><img src="{{url_for('static' , filename='icon/delivery.png')}}">ارسال سریع و رایگان</span>
+    
+    {% if p.name == 'ترنچ کت ماهانا' or p.name=='کت مشکی ونوس' or p.name=='کت دو دکمه جیب نما الیسا' %}
+            <span class="tag2">20% تخفیف</span>
+        {% endif %}
+
+        {% if p.name=='تونیک مانتویی شانتون آسمان' or p.name=='کراپ طرح 24'%}
+        <span class="tag2" style=
+        "background-color: #4caf4fe1 ;
+        color: rgba(36, 34, 34, 0.788)
+        ;border: 2px solid rgba(54, 53, 52, 0.788)
+        ;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        ;">شارژ شده</span>
+    {% endif %}
 
 
     <h3>{{ p.name }}<br> {{ "{:,}".format(p.price) }} تومان</h3>
