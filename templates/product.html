@@ -2,25 +2,67 @@
 
 
 {% block header %}
-<title>محصول {{product.name}}</title>
+<title>{{product.name}}</title>
 
 {% endblock %}
 
 {% block body %}
 
-آیدی محصول:{{product.id}}<br>
-نام محصول:{{product.name}}<br>
- کد محصول:{{product.description}}<br>
-قیمت محصول:{{product.price}}<br>
-عکس محصول:<img style="width: 30px;" src="/static/cover/{{ product.id }}.jpg">
+{% include 'part/header.html' %}
 
+<div class="product-detail-box">
+    <div>
+        <img style="width: 400px;
+        margin: 20px 10px;border-radius: 10px;"
+            src="{{url_for('static' , filename='cover/'+product.id|string+'.jpg')}}">
+    </div>
+    <section>
+        <h1> {{product.name}}</h1>
+        کد محصول:{{product.description }} <br>
+        قیمت محصول:<b>{{ "{:,}".format(product.price) }} تومان</b><br>
+        <label>رنگ بندی:</label>
+
+        {% if product.name == 'ترنچ کت ماهانا' or product.name=='کت مشکی ونوس' or product.name=='کت دو دکمه جیب نما
+        الیسا' or product.name=='تونیک مانتویی شانتون آسمان' %}
+        <select class="product-colors">
+            <option>مشکی</option>
+            <option>آبی</option>
+            <option>قهوه ای </option>
+        </select>
+        {% endif %}
+
+        {% if product.name == 'کت لنین نیلارز' or product.name=='کراپ طرح 24' or product.name=='ترنچ کت اونتوس' %}
+        <select class="product-colors">
+            <option>صورتی</option>
+            <option>سبزآبی</option>
+            <option>نارنجی</option>
+        </select>
+        {% endif %}
+
+        {% if product.name=='شومیز تک جیب ' %}
+        <select class="product-colors">
+            <option>سفید</option>
+            <option> کرمی</option>
+
+        </select>
+        {% endif %}
+
+
+        <div class="add-to-cart">
+            <img src="{{url_for('static' , filename='icon/cart.png')}}">
+            <a href="/add-to-cart" id="{{ product.id  }}" style="color:#2e62a7f3 ;" > افزودن به سبد خرید</a>
+        </div>
+        <span class="tag-in-product" ><img src="{{url_for('static' , filename='icon/delivery.png')}}">ارسال سریع و
+            رایگان</span>
+        <span class="tag-in-product"><img src="{{url_for('static' , filename='icon/pay.png')}}">پرداخت امن
+            </span>
+    </section>
+</div>
+
+{% endblock %}
 
 <form action="/add-to-cart" method="get">
     <input type="hidden" name="id" value="{{ product.id }}">
-    <input type="submit" value="اضافه کردن به سبد خرید ">
+    <input type="submit" value="افزودن به سبد خرید ">
 
 </form>
-
-
-
-{% endblock %}

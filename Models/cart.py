@@ -31,3 +31,5 @@ class Cart(db.Model,UserMixin):
 
         if self.status == "rejected":
             return "رد شده"
+
+
