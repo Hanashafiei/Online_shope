@@ -1,8 +1,10 @@
 <header>
     <section>
         
-        <div>
-            
+        <div id="header-menu">
+            <img id="header-menu-icon" src="{{ url_for('static', filename='icon/close.png') }}" 
+            onclick="javascript:change_header_manu(false)" style="margin:-15px ;">
+
             <a href="/">صفحه اصلی</a>
             <a href="/about">درباره ما</a>
             <a href="/user/dashboard">پروفایل </a>
@@ -14,6 +16,6 @@
         </div>
         <img src="{{ url_for('static', filename='img/img.png') }}" alt="papion">
 
-
+        <img id="header-menu-icon" src="{{ url_for('static', filename='icon/menu.png') }}" onclick="javascript:change_header_manu(true)"> 
     </section>
 </header>

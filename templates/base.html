@@ -18,6 +18,31 @@
 
     {% endblock %}
 
+<script>
+
+    
+    const header_menu = document.getElementById("header-menu")
+    const change_header_manu = (show)=>{
+        if (show){
+            header_menu.style.display = "block"
+            header_menu.style.height = header_menu.scrollHeight + "px"
+
+            margin_box.style.marginTop = header_menu.scrollHeight + "px";
+        }
+        else {
+            header_menu.style.transition = "height 0.3s ease";
+            header_menu.style.height = "0"
+            
+            header_menu.addEventListener("transitionend", function hideAfterCollapse(e) {
+            if (e.propertyName === "height") {
+                header_menu.style.display = "none";
+                header_menu.removeEventListener("transitionend", hideAfterCollapse);
+            }
+        });
+        margin_box.style.marginTop = "0px";
+        }
+    }
+</script>
 </body>
 
 </html>

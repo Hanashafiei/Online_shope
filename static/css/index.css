@@ -25,15 +25,12 @@ header {
 
 header img {
     width: 200px;
-    height: 65px;
+    max-height: 65px;
     border-radius: 10px;
     margin: 7px;
     margin-top: 19px;
     margin-bottom: 20px;
     float: left;
-
-
-
 }
 
 header>section {
@@ -48,6 +45,7 @@ header>section {
     border: 5px solid #F5CBCB;
     outline: 3px solid #748DAE;
     border-radius: 10px;
+
 }
 
 header div {
@@ -116,12 +114,6 @@ header a:hover {
     width: 100%;
     border-top-right-radius: inherit;
     border-top-left-radius: inherit;
-
-
-
-
-
-
 }
 
 
@@ -281,12 +273,73 @@ header a:hover {
     background-color: #F5CBCB;
     color: #2a72cf;
 }
+
 .similar-products-box {
     max-width: 1100px;
     margin: auto;
 }
-.similar-products-box h1{
+
+.similar-products-box h1 {
     margin-right: 55px;
     padding: 5px;
-    box-shadow: 10px 20px 10px #444343;
+    box-shadow: 10px 10px 10px #444343;
+}
+#header-menu-icon {
+    display: none;
+    width: 50px;
+    float: right;
+    align-items: center;
+    
+}
+@media (max-width:912px) {
+    header>section>div {
+        display:none;
+        position: absolute;
+        left: 0;
+        right:0;
+        top:0;
+        border: 5px solid #F5CBCB;
+        outline: 3px solid #748DAE;
+        border-radius: 10px;
+        background-color: #748DAE;
+        padding: 5px;
+        z-index: 99;
+        height: 0;
+        overflow: hidden;
+
+    }
+    #header-menu-icon{
+        display: block;
+    }
+    header  img{
+        float: left;
+        
+    }
+
+    header>section>div>* {
+        display: block;
+    }
+    header>section{
+        width: 480px
+    }
+    .product-detail-box>section{
+        margin: auto;
+    }
+    
+  
+}
+@media (max-width:540px){
+    header>section{
+        width: 300px;
+    }
+    .product-detail-box>section{
+        margin: auto;
+    }
+
+}
+@media (max-width:670px){
+    .similar-products-box h1 {
+        box-shadow: none;
+        margin-right: 10px;
+    }
 }

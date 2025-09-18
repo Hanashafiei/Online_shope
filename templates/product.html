@@ -10,10 +10,10 @@
 
 {% include 'part/header.html' %}
 
-<div class="product-detail-box">
+<div class="product-detail-box" id="margin_box">
     <div>
         <img style="width: 380px;
-        margin: 20px 10px;border-radius: 10px;"
+        margin: 20px 10px ;border-radius: 10px;"
             src="{{url_for('static' , filename='cover/'+product.id|string+'.jpg')}}">
     </div>
     <section>
