@@ -12,7 +12,7 @@
 
 <div class="product-detail-box">
     <div>
-        <img style="width: 400px;
+        <img style="width: 380px;
         margin: 20px 10px;border-radius: 10px;"
             src="{{url_for('static' , filename='cover/'+product.id|string+'.jpg')}}">
     </div>
@@ -23,7 +23,8 @@
         <label>رنگ بندی:</label>
 
         {% if product.name == 'ترنچ کت ماهانا' or product.name=='کت مشکی ونوس' or product.name=='کت دو دکمه جیب نما
-        الیسا' or product.name=='تونیک مانتویی شانتون آسمان' %}
+        الیسا'
+        or product.name=='تونیک مانتویی شانتون آسمان' %}
         <select class="product-colors">
             <option>مشکی</option>
             <option>آبی</option>
@@ -50,19 +51,29 @@
 
         <div class="add-to-cart">
             <img src="{{url_for('static' , filename='icon/cart.png')}}">
-            <a href="/add-to-cart" id="{{ product.id  }}" style="color:#2e62a7f3 ;" > افزودن به سبد خرید</a>
+            <a href="/add-to-cart" id="{{ product.id  }}"> افزودن به سبد خرید</a>
         </div>
-        <span class="tag-in-product" ><img src="{{url_for('static' , filename='icon/delivery.png')}}">ارسال سریع و
+        <span class="tag-in-product"><img src="{{url_for('static' , filename='icon/delivery.png')}}">ارسال سریع و
             رایگان</span>
         <span class="tag-in-product"><img src="{{url_for('static' , filename='icon/pay.png')}}">پرداخت امن
-            </span>
+        </span>
     </section>
 </div>
 
+
+<section class="similar-products-box">
+    <h1>محصولات مشابه:</h1>
+    <section class="products">
+        {% for p in another_products %}
+        {% include 'part/product_box.html' %}
+        {% endfor %}
+    </section>
+</section>
+
+
+
+
+
+
 {% endblock %}
 
-<form action="/add-to-cart" method="get">
-    <input type="hidden" name="id" value="{{ product.id }}">
-    <input type="submit" value="افزودن به سبد خرید ">
-
-</form>
