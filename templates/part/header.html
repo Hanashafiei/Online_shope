@@ -5,16 +5,19 @@
             <img id="header-menu-icon" src="{{ url_for('static', filename='icon/close.png') }}" 
             onclick="javascript:change_header_manu(false)" style="margin:-15px ;">
 
-            <a href="/">صفحه اصلی</a>
-            <a href="/about">درباره ما</a>
-            <a href="/user/dashboard">پروفایل </a>
+            <a href="/user/login" class="a-header">ورود/ثبت نام</a>
+            <a href="/cart" class="a-header">سبد خرید</a>
+            <a href="/about" class="a-header">درباره ما</a>
+            
 
             <form action="/" method="get">
             <input type="search" name="search" value="{{ search if search!=None }}" placeholder="جستجو...">
             </form>
 
         </div>
-        <img src="{{ url_for('static', filename='img/img.png') }}" alt="papion">
+        <a href="/">
+            <img src="{{ url_for('static', filename='img/img.png') }}" alt="papion">
+        </a>
 
         <img id="header-menu-icon" src="{{ url_for('static', filename='icon/menu.png') }}" onclick="javascript:change_header_manu(true)"> 
     </section>

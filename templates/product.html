@@ -12,7 +12,7 @@
 
 <div class="product-detail-box" id="margin_box">
     <div>
-        <img style="width: 380px;
+        <img style="max-width: 380px;width: 100%;
         margin: 20px 10px ;border-radius: 10px;"
             src="{{url_for('static' , filename='cover/'+product.id|string+'.jpg')}}">
     </div>
@@ -51,8 +51,9 @@
 
         <div class="add-to-cart">
             <img src="{{url_for('static' , filename='icon/cart.png')}}">
-            <a href="/add-to-cart" id="{{ product.id  }}"> افزودن به سبد خرید</a>
+            <a href="/add-to-cart?id={{ product.id  }}"> افزودن به سبد خرید</a>
         </div>
+
         <span class="tag-in-product"><img src="{{url_for('static' , filename='icon/delivery.png')}}">ارسال سریع و
             رایگان</span>
         <span class="tag-in-product"><img src="{{url_for('static' , filename='icon/pay.png')}}">پرداخت امن
